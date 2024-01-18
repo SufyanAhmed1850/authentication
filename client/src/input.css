@@ -12,6 +12,7 @@
     padding: 0;
     min-width: 0;
     inset: unset;
+    -webkit-tap-highlight-color: transparent;
 }
 #root {
     display: flex;

@@ -1,18 +1,17 @@
 import express from "express";
 import mongoose from "mongoose";
-import jwt from "jsonwebtoken";
 import corsOptions from "./config/corsOptions.js";
 import cookieParser from "cookie-parser";
-import bcrypt from "bcrypt";
 import cors from "cors";
 import chalk from "chalk";
 import "dotenv/config";
 import router from "./routes/router.js";
 
 const app = express();
+app.use(cors(corsOptions));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors(corsOptions));
 
 mongoose
     .connect(process.env.DB_URI)
